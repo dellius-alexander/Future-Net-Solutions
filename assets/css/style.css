@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #0078D4;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+  color: #0078D4;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #005299;
+}
+
+/* Buttons (Reusable) */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0078D4;
+  color: #FFFFFF;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #005299;
+}
+
+/* Responsive Design Between (769px) and (932px). Mainly Tablets*/
+@media (min-width: 769px) and (max-width: 932px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  main {
+    padding: 1rem;
+  }
+}
+/* Responsive Design max(768px). Mainly Cell Phones */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  main {
+    padding: 1rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,31 @@
+User-agent: *
+
+Disallow: /config/          # Prevent crawling of configuration files
+Disallow: /certs/           # Prevent crawling of SSL certificates
+Disallow: /controllers/     # Prevent crawling of server-side logic
+Disallow: /middleware/      # Prevent crawling of middleware code
+Disallow: /utils/           # Prevent crawling of utility scripts
+Disallow: /scripts/         # Prevent crawling of standalone scripts
+Disallow: /tests/           # Prevent crawling of test files
+Disallow: /views/           # Prevent crawling of raw EJS templates
+Disallow: /uploads/         # Prevent crawling of user-uploaded files (if implemented)
+Disallow: /.github/         # Prevent crawling of GitHub config files
+Disallow: /.env             # Prevent crawling of environment file (if accidentally exposed)
+Disallow: /docs/            # Prevent crawling of internal documentation
+
+Allow: /                    # Allow homepage
+Allow: /services           # Allow services page
+Allow: /careers            # Allow careers page
+Allow: /contact            # Allow contact page
+Allow: /about              # Allow about page
+Allow: /assets/css/ # Allow CSS files
+Allow: /assets/js/  # Allow JS files
+Allow: /assets/img/ # Allow image files
+Allow: /assets/fonts/ # Allow font files
+
+noarchive: /                # Do not cache any page
+nosnippet: /                # Do not show a snippet in search results
+notranslate: /              # Do not offer translation of any page
+noindex: /                  # Do not index any page
+
+Sitemap: https://futurenetsolutions.com/sitemap.xml

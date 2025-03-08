@@ -1,0 +1,27 @@
+footer {
+  background-color: #010615;
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  width: 100%;
+  margin-top: auto;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+footer ul li a {
+  color: #0078D4;
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: #FFFFFF;
+}
+
+/*# sourceMappingURL=footer.css.map */
