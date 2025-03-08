@@ -12,6 +12,7 @@ Future-Net-Solutions/
 ├── public/                             # Static assets served by Express
 │   ├── robots.txt                      # Instructions for search engine crawlers (e.g., User-agent, Disallow, Allow, Sitemap)
 │   ├── sitemap.xml                     # XML sitemap for search engines (e.g., Google, Bing, Yahoo)
+│   ├── index.html                      # Default HTML file (e.g., for static sites)
 │   ├── assets/                         # Subdirectory for organized assets
 │   │   ├── css/                        # Compiled CSS files for styling
 │   │   │   ├── styles.css              # Base styles compiled from styles.scss

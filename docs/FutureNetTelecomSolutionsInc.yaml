@@ -13,8 +13,12 @@ site:
     default-src: "'self'"
     script-src: "'self' https://trusted.cdn.com"
     style-src: "'self' https://fonts.googleapis.com 'unsafe-inline'"
-    img-src: "'self' data: https://futurenettelecomsolutions.com 'unsafe-inline'"
+    img-src: "'self' data: https://futurenettelecomsolutions.com https://*.github.io https://github.com https://media.githubusercontent.com"
     connect-src: "'self' https://futurenettelecomsolutions.com"
+    font-src: "'self' https://fonts.gstatic.com data:"
+    form-action: "'self'"
+    object-src: "'none'"
+    base-uri: "'self'"
 
   seo:
     # Core SEO Metadata (extends site.metadata where applicable)
@@ -130,35 +134,35 @@ site:
             url: "/contact#quote"
       features:
         - title: "Fiber Optic Installation"
-          icon: "assets/img/fiber-optic-installation.png"
+          icon: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/fiber-optic-installation.png"
           description: "High-speed fiber optic deployment for seamless connectivity."
 
         - title: "5G & Network Infrastructure"
-          icon: "assets/img/g5-network-infrastructure.png"
+          icon: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/g5-network-infrastructure.png"
           description: "Cutting-edge 5G and structured cabling solutions for modern networks."
 
         - title: "24/7 Support & Maintenance"
-          icon: "assets/img/support-maintenance.png"
+          icon: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/support-maintenance.png"
           description: "Round-the-clock technical assistance, preventive maintenance, and emergency repairs."
 
         - title: "Telecom Engineering"
-          icon: "assets/img/telecom-engineering.png"
+          icon: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/telecom-engineering.png"
           description: "Expert network design, utility coordination, and OSP engineering services."
 
         - title: "Construction & Deployment"
-          icon: "assets/img/construction-deployment.png"
+          icon: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/construction-deployment.png"
           description: "Aerial and underground fiber installation, directional drilling, and service drops."
 
         - title: "Consulting & Security"
-          icon: "assets/img/consulting-security.png"
+          icon: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/consulting-security.png"
           description: "Tailored network consulting, capacity planning, and security assessments."
 
         - title: "Sales & Marketing"
-          icon: "assets/img/sales-marketing.png"
+          icon: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/sales-marketing.png"
           description: "Strategic sales, call center support, and targeted telecom marketing campaigns."
 
         - title: "Broadband & MDU Installs"
-          icon: "assets/img/broadband-mdu-install.png"
+          icon: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/broadband-mdu-install.png"
           description: "Professional FTTH, broadband, and multi-dwelling unit installations."
 
 
