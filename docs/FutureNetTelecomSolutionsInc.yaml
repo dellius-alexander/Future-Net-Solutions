@@ -40,13 +40,13 @@ site:
 #      mask_icon_color: "#0078D4"  # Theme color for mask icon
     open_graph:
       og_type: "website"
-      og_image: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/favicon_io/favicon-32x32.png"
+      og_image: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/favicon_io/favicon-16x16.png"
       og_locale: "en_US"
     twitter_card:
       card_type: "summary_large_image"
       site_handle: "@futurenettelecomsolutions"
       creator_handle: "@futurenettelecomsolutions"
-      image: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/favicon_io/favicon-32x32.png"
+      image: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/favicon_io/favicon-16x16.png"
 
     # Advanced SEO Options
     sitemap:
