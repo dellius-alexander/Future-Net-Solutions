@@ -12,7 +12,7 @@ const ROOT_DIR = path.resolve(__dirname, '..');
  * and handles middleware or Express internals more gracefully.
  * @returns {Object} { file, lineNumber }
  */
-const getCallerInfo = () => {
+const getCallerInfo = (req = {}) => {
     try {
         const trace = stackTrace.get();
         // Find the first relevant frame
@@ -22,6 +22,8 @@ const getCallerInfo = () => {
                 fileName &&
                 !fileName.includes('node_modules') &&
                 !fileName.includes('winston') &&
+                !fileName.includes('node:internal') &&
+                !fileName.includes('morgan') &&
                 !fileName.includes('logger.js') &&
                 !fileName.includes('security.js') &&
                 (
@@ -48,14 +50,12 @@ const getCallerInfo = () => {
         const fileName = path.basename(fullFileName);
         const lineNumber = callerFrame.getLineNumber() || 'unknown';
 
-        if (fullFileName.includes('static') && req && req.path.match(/\.(css|js|png)$/)) {
-            return { file: `static-${req.path.split('.').pop()}`, lineNumber: 'n/a' };
-        }
-
         // Determine if it’s a project file or static/middleware
         const isProjectFile = fullFileName.startsWith(ROOT_DIR) &&
             !fullFileName.includes('node_modules') &&
             !fullFileName.includes('winston') &&
+            !fullFileName.includes('node:internal') &&
+            !fullFileName.includes('morgan') &&
             !fullFileName.includes('logger.js') &&
             !fullFileName.includes('security.js') &&
             (
@@ -78,8 +78,6 @@ const getCallerInfo = () => {
         } else if (fullFileName.includes('express') || fullFileName.includes('static')) {
             return { file: 'static', lineNumber: 'n/a' }; // Indicate static file serving
         }
-
-
 
         return { file: 'unknown', lineNumber: 'unknown' };
     } catch (error) {

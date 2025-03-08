@@ -63,13 +63,28 @@ a:hover {
   background-color: #005299;
 }
 
-/* Responsive Design */
+/* Responsive Design Between (769px) and (932px). Mainly Tablets*/
+@media (min-width: 769px) and (max-width: 932px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  main {
+    padding: 1rem;
+  }
+}
+/* Responsive Design max(768px). Mainly Cell Phones */
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
   }
   h2 {
     font-size: 1.5rem;
+  }
+  main {
+    padding: 1rem;
   }
 }
 

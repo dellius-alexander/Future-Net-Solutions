@@ -10,6 +10,7 @@ const routes = require('./routes/index');
 const { handleServerError } = require('./utils/errors');
 const { sslOptions, cfg } = require('./utils/sslOptions');
 const express = require('express');
+const morgan = require("morgan");
 
 // Create Express App
 const app = express();
@@ -21,17 +22,27 @@ app.use(express.urlencoded({ extended: true }));
 app.use(require('cookie-parser')());
 app.use(require('cors')());
 app.use(securityMiddleware());
-app.use(require('morgan')('combined'));
 
 // View Engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Static Files
-app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
-app.use('/', express.static('public/robots.txt')); // Ensures robots.txt is accessible
-app.use('/', express.static('public/sitemap.xml')); // Ensures sitemap.xml is accessible
+app.use('/assets', express.static(path.join(__dirname, 'public/assets'), {
+  setHeaders: (res, path, stat) => {
+    res.locals.callerInfo = { file: 'static', line: 'n/a' };
+  }
+}));
+app.use('/', express.static(path.join(__dirname,'public/robots.txt'))); // Ensures robots.txt is accessible
+app.use('/', express.static(path.join(__dirname,'public/sitemap.xml'))); // Ensures sitemap.xml is accessible
 
+// In server.js, before your routes
+app.use((req, res, next) => {
+  if (!req.callerInfo) {
+    req.callerInfo = { file: 'static', line: 'n/a' }; // Default for static files or unknown sources
+  }
+  next();
+});
 
 // Routes
 app.use('/', routes);

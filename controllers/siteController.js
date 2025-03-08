@@ -18,10 +18,11 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const renderPage = async (req, res, page, title, next) => {
   res
       .render(`pages/${page}`, {
-    site: siteConfig.site,
-    components: siteConfig.site.components,
-    structure: siteConfig.site.structure[page],
-    title: `${siteConfig.site.title} || ${title}`
+        site: siteConfig.site,
+        components: siteConfig.site.components,
+        structure: siteConfig.site.structure[page],
+        title: `${siteConfig.site.title} || ${title}`,
+        error: null
   }, async (err, html) => {
     if (err) {
         logger.error(`Error rendering page: ${err}`);

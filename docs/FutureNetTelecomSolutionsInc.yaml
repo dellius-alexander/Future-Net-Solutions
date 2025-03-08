@@ -21,8 +21,15 @@ site:
     base_url: "https://futurenettelecomsolutions.com"
     robots: "index, follow"
     canonical: "{base_url}/{page_url}"  # Dynamic canonical URL placeholder
-    favicon: "assets/img/favicon_io/favicon.ico"
-    manifest: "assets/img/favicon_io/manifest.json"  # web app manifest
+    favicons:
+      original: "assets/img/favicon_io/favicon.ico"
+      apple_touch_icon: "assets/img/favicon_io/apple-touch-icon.png"
+      android_chrome_192: "assets/img/favicon_io/android-chrome-192x192.png"
+      android_chrome_512: "assets/img/favicon_io/android-chrome-512x512.png"
+      favicon_16: "assets/img/favicon_io/favicon-16x16.png"
+      favicon_32: "assets/img/favicon_io/favicon-32x32.png"
+      manifest: "assets/img/favicon_io/manifest.json"  # web app manifest
+      mask_icon_color: "#0078D4"  # Theme color for mask icon
     open_graph:
       og_title: "{site.title}"  # Inherits site title by default
       og_description: "{site.metadata.description}"
@@ -31,8 +38,8 @@ site:
       og_locale: "en_US"
     twitter_card:
       card_type: "summary_large_image"
-      site_handle: "@futurenettelecomsolution"
-      creator_handle: "@futurenettelecomsolution"
+      site_handle: "@futurenettelecomsolutions"
+      creator_handle: "@futurenettelecomsolutions"
       image: "{base_url}/assets/img/logo.png"
 
     # Advanced SEO Options
@@ -55,8 +62,8 @@ site:
         name: "FutureNet Telecom Solutions Inc."
         logo: "{base_url}/assets/img/logo.png"
         same_as:
-          - "https://twitter.com/futurenettelecomsolution"
-          - "https://linkedin.com/company/futurenettelecomsolution"
+          - "https://twitter.com/futurenettelecomsolutions"
+          - "https://linkedin.com/company/futurenettelecomsolutions"
       breadcrumb:
         enabled: true
         template: "Home > {page_name}"
@@ -84,14 +91,14 @@ site:
       copyright: "© 2025 FutureNet Telecom Solutions Inc. All rights reserved."
       social_links:
         - name: "Twitter"
-          url: "https://twitter.com/futurenettelecomsolution"
+          url: "https://twitter.com/futurenettelecomsolutions"
         - name: "LinkedIn"
-          url: "https://linkedin.com/company/futurenettelecomsolution"
+          url: "https://linkedin.com/company/futurenettelecomsolutions"
       address:
-        street: "123 Telecom Drive"
-        city: "Network City"
-        state: "NC"
-        zip: "27513"
+        street: "3480 Preston Ridge Road, Suite 500"
+        city: "Alpharetta"
+        state: "GA"
+        zip: "30005"
 
     menu:
       main:

@@ -223,3 +223,4 @@ certs/
 # Never commit staging directory
 staging/
 
+/docs/HTML.md

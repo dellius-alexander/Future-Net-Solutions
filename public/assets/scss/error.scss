@@ -3,14 +3,13 @@
 
 // Error Page Styles
 .error-container {
-  text-align: center;
+  //text-align: center;
   padding: 50px 20px;
-  min-height: 100vh; // Full height to push content into view
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; // Start content at top
+  justify-content: center;
   align-items: center;
-  // Removed position: relative; to let body be the positioning context
 }
 
 .error-code {
@@ -31,16 +30,13 @@
   margin: 0 auto;
 }
 
-#back-home-container {
-  position: absolute; // Position relative to body
-  top: 50%; // Center vertically
-  left: 50%; // Center horizontally
-  transform: translate(-50%, -50%); // Offset by half its size
-  width: auto; // Natural width
+.back-home {
+  right: 50%;
+  left: 50%;
 }
 
 .back-home.btn {
-  display: inline-block;
+  margin-top: 30px;
   padding: 10px 20px;
   background-color: variables.$primary-color;
   color: variables.$secondary-color;
@@ -48,8 +44,27 @@
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  align-content: center;
 }
 
 .back-home.btn:hover {
   background-color: variables.$accent-color;
+}
+
+/* Responsive Design Between (769px) and (932px). Mainly Tablets*/
+@media (min-width: 769px) and (max-width: 932px) {
+  p{
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Responsive Design max(768px). Mainly Cell Phones */
+@media (max-width: 768px) {
+  p{
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
