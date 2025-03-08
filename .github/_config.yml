@@ -1,0 +1,55 @@
+# _config.yml for FutureNet Telecom Solutions GitHub Pages
+# This file provides basic configuration for a static GitHub Pages site
+# Note: Since Jekyll is disabled, only certain settings will apply (e.g., baseurl, include)
+
+# Site Settings
+title: FutureNet Telecom Solutions INC.      # Site title, used in metadata or templates if applicable
+description: Innovative telecom solutions for the future.  # Site description for SEO or metadata
+author: Dellius Alexander                    # Your name or organization name
+email: info@futurenettelecomsolutions.com               # Contact email (optional)
+
+# Base URL
+# Defines the subdirectory of your GitHub Pages site (e.g., /Future-Net-Solutions)
+# Adjust this if your site is served from a subdirectory
+baseurl: /              # Set to the repository name if not at root
+
+# URL
+# Full URL of your site (optional, used with baseurl for absolute links)
+url: https://futurenettelecomsolutions.com    # Your GitHub Pages base URL
+
+# Build Settings
+# Since Jekyll is disabled, these settings are mostly informational or for future use
+markdown: kramdown                           # Default Markdown processor (if enabled later)
+highlighter: rouge                           # Syntax highlighter (if enabled later)
+
+# Include and Exclude
+# Specify directories or files to include or exclude from the build
+# Useful for ensuring image directories or static assets are served
+include:
+  - assets                                   # Include the assets directory (e.g., for images, CSS, JS)
+  - robots.txt                                # Include robots.txt if present
+  - sitemap.xml                               # Include sitemap.xml if present
+exclude:
+  - node_modules                              # Exclude Node.js development files
+  - .gitignore                                # Exclude Git ignore file
+  - README.md                                 # Exclude README if not part of the site
+
+# Defaults
+# Set default values for pages or posts (if you add content later)
+defaults:
+  -
+    scope:
+      path: ""                                # Apply to all files
+    values:
+      layout: default                         # Default layout (if using templates later)
+
+# Custom Variables
+# Define custom variables for use in your HTML or other files
+future_net:
+  logo_path: assets/images/logo.png          # Path to your logo for easy reference
+  company_name: FutureNet Telecom Solutions INC.
+
+# Plugins (Optional)
+# Plugins are ignored unless Jekyll is enabled, but listed for future reference
+# plugins:
+#   - jekyll-feed                              # Example plugin for RSS feed

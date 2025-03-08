@@ -61,6 +61,7 @@ setup_staging() {
     # Step 1: Copy public directory (excluding scss)
     cp -r public "$DEST_DIR"
     rm -rf "$DEST_DIR/assets/scss"
+    cp -r .github/_config.yml "$DEST_DIR"
 
 #    # Step 2: Create package.json
 #    create_package_json "$DEST_DIR"

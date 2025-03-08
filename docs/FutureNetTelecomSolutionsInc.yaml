@@ -29,7 +29,8 @@ site:
       favicon_16: "assets/img/favicon_io/favicon-16x16.png"
       favicon_32: "assets/img/favicon_io/favicon-32x32.png"
       manifest: "assets/img/favicon_io/manifest.json"  # web app manifest
-      mask_icon_color: "#0078D4"  # Theme color for mask icon
+#      mask_icon: "assets/img/mask-icon.svg"
+#      mask_icon_color: "#0078D4"  # Theme color for mask icon
     open_graph:
       og_title: "{site.title}"  # Inherits site title by default
       og_description: "{site.metadata.description}"
