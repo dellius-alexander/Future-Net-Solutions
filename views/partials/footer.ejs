@@ -1,0 +1,20 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="/assets/css/footer.css">
+</head>
+<footer>
+    <p><%= site.components.footer.copyright %></p>
+    <ul>
+        <% site.components.footer.social_links.forEach(link => { %>
+            <li><a href="<%= link.url %>"><%= link.name %></a></li>
+        <% }); %>
+    </ul>
+    <p>
+        <%= site.components.footer.address.street %>,
+        <%= site.components.footer.address.city %>,
+        <%= site.components.footer.address.state %>
+        <%= site.components.footer.address.zip %>
+    </p>
+    <p>
+        Contact: <%= site.components.header.contact_quick.phone %> | <%= site.components.header.contact_quick.email %>
+    </p>
+</footer>

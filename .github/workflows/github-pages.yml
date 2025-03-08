@@ -1,0 +1,78 @@
+# This workflow builds and deploys the Future-Net-Solutions app to GitHub Pages using Bash.
+name: 'Build, Test, Deploy GitHub Pages'
+env:
+  TZ: 'America/New_York'
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'main'
+
+permissions:
+  contents: write # Needed for branch updates
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  github-pages:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: List project contents (for debugging)
+        run: ls -liaR
+
+      - name: Make staging.sh executable
+        run: chmod +x staging.sh
+
+      - name: Run staging.sh to prepare assets
+        run: ./staging.sh
+        env:
+          HOSTNAME: ${{ secrets.HOSTNAME || 'futurenettelecomsolutions.com' }}
+
+      - name: Move staging contents to github-pages branch
+        run: |
+          # Configure git
+          git config --global user.name "${{ secrets.USER_NAME }}"
+          git config --global user.email "${{ secrets.USER_EMAIL }}"
+          
+          # Set remote URL with token
+          git remote set-url origin https://${{ secrets.USER_NAME }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          
+          # Check if github-pages branch exists, create it if not
+          git fetch
+          if git show-ref --quiet refs/heads/github-pages; then
+            git checkout github-pages
+          else
+            git checkout --orphan github-pages
+          fi
+          
+          # Remove existing files in github-pages branch (clean slate)
+          git rm -rf .
+          
+          # Move staging contents to root of github-pages branch
+          mv staging/* .
+          rm -rf staging # Clean up staging directory
+          
+          # Set up Git LFS for images
+          git lfs install
+          #git lfs track "*.png" "*.jpg" # Track image types
+          #git add .gitattributes
+          rm -rf .gitattributes # Remove .gitattributes file
+          # Add, commit, and push to github-pages branch
+          git add .
+          git commit -m "Deploy to github-pages with images [ci skip]" || echo "No changes to commit"
+          git push origin github-pages -f
+          
+          echo "Successfully moved staging contents to github-pages branch"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USER_NAME: ${{ secrets.USER_NAME }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}

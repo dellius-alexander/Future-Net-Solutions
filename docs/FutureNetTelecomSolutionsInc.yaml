@@ -1,0 +1,300 @@
+# Site-wide Configuration
+site:
+  metadata:
+    description: "Premier telecommunication and low voltage services provider offering installation, maintenance, and support."
+    keywords: "Telecom Contractor, Telecommunication Services, Network Installation, Support and Maintenance, Fiber Optics, Network Infrastructure, Construction & Deployment, Broadband adn MDU Installation, Consulting & Security, Sales & Marketing"
+    author: "FutureNet Telecom solutions Inc."
+    charset: "utf-8"
+    viewport: "width=device-width, initial-scale=1.0"
+
+  title: "FutureNet Telecom Solutions Inc - Telecommunication Experts"
+
+  content_security_policy:  # /controller/security.js
+    default-src: "'self'"
+    script-src: "'self' https://trusted.cdn.com"
+    style-src: "'self' https://fonts.googleapis.com 'unsafe-inline'"
+    img-src: "'self' data: https://futurenettelecomsolutions.com 'unsafe-inline'"
+    connect-src: "'self' https://futurenettelecomsolutions.com"
+
+  seo:
+    # Core SEO Metadata (extends site.metadata where applicable)
+    base_url: "https://futurenettelecomsolutions.com"
+    robots: "index, follow"
+    canonical: "{base_url}/{page_url}"  # Dynamic canonical URL placeholder
+    favicon: "/assets/img/favicon_io/favicon.ico"
+    manifest: "/assets/img/favicon_io/manifest.json"  # web app manifest
+    open_graph:
+      og_title: "{site.title}"  # Inherits site title by default
+      og_description: "{site.metadata.description}"
+      og_type: "website"
+      og_image: "{base_url}/assets/img/logo.png"
+      og_locale: "en_US"
+    twitter_card:
+      card_type: "summary_large_image"
+      site_handle: "@futurenettelecomsolution"
+      creator_handle: "@futurenettelecomsolution"
+      image: "{base_url}/assets/img/logo.png"
+
+    # Advanced SEO Options
+    sitemap:
+      enabled: true
+      url: "{base_url}/sitemap.xml"
+      priority_pages:
+        - url: "/"
+          priority: 1.0
+          changefreq: "daily"
+        - url: "/services"
+          priority: 0.9
+          changefreq: "weekly"
+        - url: "/contact"
+          priority: 0.8
+          changefreq: "monthly"
+    structured_data:
+      organization:
+        type: "Organization"
+        name: "FutureNet Telecom Solutions Inc."
+        logo: "{base_url}/assets/img/logo.png"
+        same_as:
+          - "https://twitter.com/futurenettelecomsolution"
+          - "https://linkedin.com/company/futurenettelecomsolution"
+      breadcrumb:
+        enabled: true
+        template: "Home > {page_name}"
+    hreflang:
+      - locale: "en-us"
+        url: "{base_url}/{page_url}"
+      - locale: "es-us"
+        url: "{base_url}/es/{page_url}"
+    noindex_pages:
+      - "/careers/apply/*"  # Prevent indexing of application pages
+    meta_robots_advanced:
+      - "noarchive"  # Prevents caching of pages by search engines
+      - "nosnippet"  # Prevents snippets in search results where applicable
+
+  # Reusable Components
+  components:
+    header:
+      logo: "/assets/img/logo.png"
+      tagline: "The Future of Telecom and Low Voltage Solutions"
+      contact_quick:
+        phone: "1-800-987-6789"
+        email: "info@futurenettelecomsolutions.com"
+
+    footer:
+      copyright: "© 2025 FutureNet Telecom Solutions Inc. All rights reserved."
+      social_links:
+        - name: "Twitter"
+          url: "https://twitter.com/futurenettelecomsolution"
+        - name: "LinkedIn"
+          url: "https://linkedin.com/company/futurenettelecomsolution"
+      address:
+        street: "123 Telecom Drive"
+        city: "Network City"
+        state: "NC"
+        zip: "27513"
+
+    menu:
+      main:
+        - name: "Home"
+          url: "/"
+          priority: 1
+        - name: "Services"
+          url: "/services"
+          priority: 2
+        - name: "Careers"
+          url: "/careers"
+          priority: 3
+        - name: "Contact"
+          url: "/contact"
+          priority: 4
+        - name: "About"
+          url: "/about"
+          priority: 5
+
+  # Page Structure
+  structure:
+    index:  # Home Page
+      hero:
+        title: "Telecommunication Solutions for Tomorrow"
+        subtitle: "Reliable. Innovative. Connected."
+        cta:
+            text: "Get a Quote"
+            url: "/contact#quote"
+      features:
+        - title: "Fiber Optic Installation"
+          icon: "/assets/img/fiber-optic-installation.png"
+          description: "High-speed fiber optic deployment for seamless connectivity."
+
+        - title: "5G & Network Infrastructure"
+          icon: "/assets/img/g5-network-infrastructure.png"
+          description: "Cutting-edge 5G and structured cabling solutions for modern networks."
+
+        - title: "24/7 Support & Maintenance"
+          icon: "/assets/img/support-maintenance.png"
+          description: "Round-the-clock technical assistance, preventive maintenance, and emergency repairs."
+
+        - title: "Telecom Engineering"
+          icon: "/assets/img/telecom-engineering.png"
+          description: "Expert network design, utility coordination, and OSP engineering services."
+
+        - title: "Construction & Deployment"
+          icon: "/assets/img/construction-deployment.png"
+          description: "Aerial and underground fiber installation, directional drilling, and service drops."
+
+        - title: "Consulting & Security"
+          icon: "/assets/img/consulting-security.png"
+          description: "Tailored network consulting, capacity planning, and security assessments."
+
+        - title: "Sales & Marketing"
+          icon: "/assets/img/sales-marketing.png"
+          description: "Strategic sales, call center support, and targeted telecom marketing campaigns."
+
+        - title: "Broadband & MDU Installs"
+          icon: "/assets/img/broadband-mdu-install.png"
+          description: "Professional FTTH, broadband, and multi-dwelling unit installations."
+
+
+    services:
+      categories:
+        - name: "Network Installation"
+          icon: "fiber-optic"
+          items:
+            - "Fiber Optic Cabling"
+            - "5G Infrastructure"
+            - "Structured Wiring"
+          description: "End-to-end high-speed network deployment services, including fiber optic cabling, 5G infrastructure, and structured wiring, ensuring seamless and future-proof connectivity."
+
+        - name: "Maintenance & Support"
+          icon: "maintenance"
+          items:
+            - "24/7 Technical Support"
+            - "Preventive Maintenance"
+            - "Emergency Repairs"
+            - "Network Upgrades"
+          description: "Comprehensive support and maintenance services, including 24/7 technical assistance, proactive preventive maintenance, emergency response, and infrastructure upgrades to ensure network reliability."
+
+        - name: "Consulting"
+          icon: "consulting"
+          items:
+            - "Network Design"
+            - "Capacity Planning"
+            - "Security Assessment"
+          description: "Expert guidance in telecom network architecture, capacity planning, and security assessments to optimize infrastructure efficiency, scalability, and protection."
+
+        - name: "Engineering"
+          icon: "engineering"
+          items:
+            - "OSP Engineering"
+            - "Fiber Network Design"
+            - "Utility Coordination"
+            - "Permit Processes"
+            - "Construction Drawings"
+            - "As-Built Drawings"
+          description: "End-to-end engineering solutions for Outside Plant (OSP) infrastructure, including fiber network design, utility coordination, permitting, and detailed documentation to support large-scale deployments."
+
+        - name: "Construction"
+          icon: "construction"
+          items:
+            - "Directional Drilling"
+            - "Aerial Wirelines"
+            - "Underground Wirelines"
+            - "Fiber Optics Installation"
+          description: "Turnkey construction services, covering directional drilling, aerial and underground wireline deployment, and fiber optic installations for robust, high-capacity networks."
+
+        - name: "Sales & Marketing"
+          icon: "sales"
+          items:
+            - "Door-to-Door Sales"
+            - "Call Center Support"
+            - "Marketing Team"
+          description: "Strategic sales and marketing initiatives, leveraging door-to-door outreach, dedicated call center support, and targeted marketing campaigns to drive telecom service adoption."
+
+        - name: "Service Drops"
+          icon: "service-drops"
+          items:
+            - "Directional Boring"
+            - "Missile Boring"
+            - "Aerial Self-Support"
+            - "Hand Dig"
+            - "Aerial Strand and Lash"
+          description: "Custom service drop solutions to connect end-users to network infrastructure, using advanced boring, aerial installations, and precision deployment techniques."
+
+        - name: "Installations"
+          icon: "installation"
+          items:
+            - "FTTH & FTTP Installs"
+            - "Broadband Installation"
+            - "Splicing Services"
+            - "MDU Rewires"
+            - "MDU Installs"
+          description: "Professional installation services for Fiber-to-the-Home (FTTH) and Fiber-to-the-Premises (FTTP), broadband connectivity, fiber splicing, and multi-dwelling unit (MDU) rewires and installations for enhanced service delivery."
+
+
+    careers:
+      intro: "Join our team of telecommunication experts"
+      benefits:
+        - "Competitive Salary"
+        - "Health Insurance"
+        - "Career Growth"
+      current_openings:
+        - title: "Fiber Optic Technician"
+          location: "Network City, NC"
+          type: "Full-time"
+          apply_url: "/careers/apply/fiber-tech"
+        - title: "Network Engineer"
+          location: "Remote"
+          type: "Full-time"
+          apply_url: "/careers/apply/network-eng"
+
+    contact:
+      form:
+        fields:
+          - name: "name"
+            type: "text"
+            required: true
+          - name: "email"
+            type: "email"
+            required: true
+          - name: "message"
+            type: "textarea"
+            required: true
+        submit_url: "/api/contact"
+      locations:
+        - name: "Headquarters"
+          address: "footer_address"  # Reference to footer address
+          phone: "1-800-987-6789"
+          hours: "Mon-Fri: 8AM-5PM"
+
+  # Shared Content Blocks
+  content_blocks:
+    about:
+      mission: "Delivering cutting-edge telecommunication solutions with reliability and expertise."
+      history: "Founded in 2000, FutureNet Telecom Solutions has grown to serve thousands of clients nationwide."
+      team:
+        - name: "John Doe"
+          role: "CEO"
+          bio: "20+ years in telecom industry"
+
+    testimonials:
+      - quote: "FutureNet Telecom Solutions transformed our network infrastructure!"
+        author: "Jane Smith, TechCorp"
+      - quote: "Reliable service and excellent support."
+        author: "Mike Johnson, ConnectInc"
+
+  # Site Settings
+  settings:
+    analytics:
+      google: "UA-XXXXX-Y"
+    theme:
+      primary_color: "#0078D4"  # Blue for buttons, links, headings
+      secondary_color: "#FFFFFF"  # White for backgrounds
+      accent_color: "#00CC66"    # Green for highlights/hover
+      background_color: "#010615"  # Dark blue for headers/footers
+      text_color: "#333333"  # Dark gray for text
+      link_color: "#0078D4"  # Blue for links
+      link_hover_color: "#005299"  # Darker blue on hover
+      font_family: "Roboto, sans-serif"
+    cdn:
+      url: "https://cdn.futurenettelecomsolutions.com/"
+      version: "1.2.3"
+

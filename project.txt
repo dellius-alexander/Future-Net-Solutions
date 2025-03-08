@@ -1,0 +1,67 @@
+Future-Net-Solutions/
+├── certs/                              # Directory for SSL certificate files (localhost.key.pem, localhost.x509.crt, ca.crt)
+│   └── .gitkeep
+├── config/                             # Configuration files for the application
+│   └── siteConfig.js                   # Defines site-wide settings (e.g., theme colors, content structure) from YAML or hardcoded data
+├── controllers/                        # Logic for handling requests and rendering views
+│   └── siteController.js               # Main controller with functions for home, services, careers, contact, and about pages
+├── docs/                               # Documentation files (e.g., API specs, database schema, project notes)
+│   ├── FutureNetTelecomSolutionsInc.yaml # Site content structure in YAML format (e.g., homepage, services, careers, etc)
+├── middleware/                         # Custom Express middleware for request processing
+│   └── security.js                     # Implements security features (Helmet) and HTTP logging with Morgan and custom logger
+├── public/                             # Static assets served by Express
+│   ├── robots.txt                      # Instructions for search engine crawlers (e.g., User-agent, Disallow, Allow, Sitemap)
+│   ├── sitemap.xml                     # XML sitemap for search engines (e.g., Google, Bing, Yahoo)
+│   ├── assets/                         # Subdirectory for organized assets
+│   │   ├── css/                        # Compiled CSS files for styling
+│   │   │   ├── styles.css              # Base styles compiled from styles.scss
+│   │   │   ├── header.css              # Header-specific styles compiled from header.scss
+│   │   │   ├── footer.css              # Footer-specific styles compiled from footer.scss
+│   │   │   ├── index.css               # Homepage-specific styles compiled from homepage.scss
+│   │   │   └── error.css               # Error page styles compiled from error.scss
+│   │   ├── scss/                       # SCSS source files for modular styling
+│   │   │   ├── _variables.scss         # Centralized SCSS variables (e.g., colors: #0078D4, #00CC66)
+│   │   │   ├── styles.scss             # Base SCSS importing _variables.scss for global styles
+│   │   │   ├── header.scss             # SCSS for header, imports _variables.scss
+│   │   │   ├── footer.scss             # SCSS for footer, imports _variables.scss
+│   │   │   ├── index.scss              # SCSS for homepage, imports _variables.scss
+│   │   │   └── error.scss              # SCSS for error pages, imports _variables.scss
+│   │   ├── js/                         # Client-side JavaScript files (currently empty, for future interactivity)
+│   │   ├── img/                        # Images, including high-res icons (e.g., fiber-optic.png)
+│   │   └── fonts/                      # Custom fonts (e.g., Roboto, sans-serif) if used
+│   └── uploads/                        # Directory for user-uploaded files (currently unused, reserved for future features)
+│       └── .gitkeep                     # Placeholder file to retain directory structure in Git
+├── routes/                             # Express route definitions
+│   └── index.js                        # Defines routes (e.g., GET /, /services) and maps to siteController functions
+├── scripts/                            # Standalone scripts for project tasks
+│   └── generate-ssl.js                 # Script to trigger sslGenerator.js for certificate creation (e.g., npm run generate:ssl)
+├── tests/                              # Test suite for the application
+│   └── server.test.js                  # Unit/integration tests for server.js and routes (e.g., Jest)
+├── utils/                              # Utility modules for reusable functionality
+│   ├── logger.js                       # Custom Winston logger with daily rotation (combined, error, exceptions logs)
+│   ├── sslOptions.js                   # Configures SSL options (key, cert, ca) and server settings (port, hostname)
+│   └── sslGenerator.js                 # Module to generate SSL certificates using OpenSSL for production HTTPS
+├── views/                              # EJS templates for dynamic HTML rendering
+│   ├── partials/                       # Reusable template fragments
+│   │   ├── header.ejs                  # Header template with logo, navigation, and contact info
+│   │   └── footer.ejs                  # Footer template with copyright, social links, and address
+│   └── pages/                          # Full page templates
+│       ├── index.ejs                   # Homepage with hero section and feature icons
+│       ├── services.ejs                # Services page listing categories and descriptions
+│       ├── careers.ejs                 # Careers page with job openings and benefits
+│       ├── contact.ejs                 # Contact page with form and location details
+│       └── about.ejs                   # About page with mission, history, and team info
+├── .github/                            # GitHub-specific configuration files
+├── .npm/                               # npm cache directory (auto-generated, typically ignored)
+├── .babelrc                            # Babel configuration for transpiling JavaScript (e.g., ES6 to ES5)
+├── .env                                # Environment variables (e.g., NODE_ENV, PORT, HOSTNAME); not tracked in Git
+├── .eslintrc.json                      # ESLint configuration for code linting (JSON format)
+├── .gitignore                          # Specifies files/directories to ignore (e.g., node_modules, .env, logs/)
+├── .npmrc                              # npm configuration (e.g., custom registry or settings, optional)
+├── eslint.config.mjs                   # Modern ESLint configuration (module format, optional if using .eslintrc.json)
+├── LICENSE.md                          # License information for the project (e.g., MIT, Apache 2.0)
+├── package.json                        # Project metadata, dependencies (e.g., express, winston), and scripts (e.g., dev, start)
+├── project.txt                         # Original project structure file (this file, for reference)
+├── README.md                           # Project overview, setup instructions, and development notes
+├── server.js                           # Main entry point, sets up Express app, middleware, routes, and HTTP/HTTPS server
+└── staging.js                          # Configuration for staging environment (e.g., different database, logging settings)
