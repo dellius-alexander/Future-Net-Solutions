@@ -37,14 +37,19 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<%= site.seo.favicons.favicon_16x16 %>">
     <link rel="manifest" href="<%= site.seo.favicons.manifest %>">
 
-    <!-- Social Media Metadata -->
-    <meta property="og:title" content="<%= site.seo.open_graph.og_title %>">
-    <meta property="og:description" content="<%= site.seo.open_graph.og_description %>">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="<%= site.seo.base_url %>">
     <meta property="og:type" content="<%= site.seo.open_graph.og_type %>">
+    <meta property="og:title" content="<%= site.seo.title %>">
+    <meta property="og:description" content="<%= site.seo.description %>">
     <meta property="og:image" content="<%= site.seo.open_graph.og_image %>">
-    <meta property="og:locale" content="<%= site.seo.open_graph.og_locale %>">
-    <meta name="twitter:card" content="<%= site.seo.twitter_card.card_type %>">
-    <meta name="twitter:site" content="<%= site.seo.twitter_card.site_handle %>">
-    <meta name="twitter:creator" content="<%= site.seo.twitter_card.creator_handle %>">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="<%= site.seo.domain %>">
+    <meta property="twitter:url" content="<%= site.seo.base_url %>">
+    <meta name="twitter:title" content="<%= site.seo.title %>">
+    <meta name="twitter:description" content="<%= site.seo.description %>">
     <meta name="twitter:image" content="<%= site.seo.twitter_card.image %>">
+
 </head>

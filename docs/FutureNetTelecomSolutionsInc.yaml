@@ -22,7 +22,10 @@ site:
 
   seo:
     # Core SEO Metadata (extends site.metadata where applicable)
+    title: "FutureNet Telecom Solutions Inc - Telecommunication Experts"
     base_url: "https://futurenettelecomsolutions.com"
+    domain: "futurenettelecomsolutions.com"
+    description: "Premier telecommunication and low voltage services provider offering installation, maintenance, and support."
     robots: "index, follow"
     canonical: "{base_url}/{page_url}"  # Dynamic canonical URL placeholder
     favicons:
@@ -36,21 +39,19 @@ site:
 #      mask_icon: "assets/img/mask-icon.svg"
 #      mask_icon_color: "#0078D4"  # Theme color for mask icon
     open_graph:
-      og_title: "{site.title}"  # Inherits site title by default
-      og_description: "{site.metadata.description}"
       og_type: "website"
-      og_image: "{base_url}/assets/img/logo.png"
+      og_image: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/logo.png"
       og_locale: "en_US"
     twitter_card:
       card_type: "summary_large_image"
       site_handle: "@futurenettelecomsolutions"
       creator_handle: "@futurenettelecomsolutions"
-      image: "{base_url}/assets/img/logo.png"
+      image: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/logo.png"
 
     # Advanced SEO Options
     sitemap:
       enabled: true
-      url: "{base_url}/sitemap.xml"
+      url: "assets/sitemap.xml"
       priority_pages:
         - url: "/"
           priority: 1.0
@@ -65,7 +66,7 @@ site:
       organization:
         type: "Organization"
         name: "FutureNet Telecom Solutions Inc."
-        logo: "{base_url}/assets/img/logo.png"
+        logo: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/logo.png"
         same_as:
           - "https://twitter.com/futurenettelecomsolutions"
           - "https://linkedin.com/company/futurenettelecomsolutions"
