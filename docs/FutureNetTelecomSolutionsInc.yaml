@@ -86,7 +86,7 @@ site:
   # Reusable Components
   components:
     header:
-      logo: "assets/img/logo.png"
+      logo: "https://media.githubusercontent.com/media/dellius-alexander/Future-Net-Solutions/refs/heads/main/public/assets/img/logo.png"
       tagline: "The Future of Telecom and Low Voltage Solutions"
       contact_quick:
         phone: "1-800-987-6789"
