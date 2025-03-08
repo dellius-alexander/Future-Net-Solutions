@@ -65,7 +65,7 @@ jobs:
           git lfs install
           git lfs track "*.png" "*.jpg" # Track image types
           git add .gitattributes
-          rm -rf .gitattributes # Remove .gitattributes file
+          
           # Add, commit, and push to github-pages branch
           git add .
           git commit -m "Deploy to github-pages with images [ci skip]" || echo "No changes to commit"
