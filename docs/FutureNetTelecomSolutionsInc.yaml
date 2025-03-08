@@ -21,8 +21,8 @@ site:
     base_url: "https://futurenettelecomsolutions.com"
     robots: "index, follow"
     canonical: "{base_url}/{page_url}"  # Dynamic canonical URL placeholder
-    favicon: "/assets/img/favicon_io/favicon.ico"
-    manifest: "/assets/img/favicon_io/manifest.json"  # web app manifest
+    favicon: "assets/img/favicon_io/favicon.ico"
+    manifest: "assets/img/favicon_io/manifest.json"  # web app manifest
     open_graph:
       og_title: "{site.title}"  # Inherits site title by default
       og_description: "{site.metadata.description}"
@@ -74,7 +74,7 @@ site:
   # Reusable Components
   components:
     header:
-      logo: "/assets/img/logo.png"
+      logo: "assets/img/logo.png"
       tagline: "The Future of Telecom and Low Voltage Solutions"
       contact_quick:
         phone: "1-800-987-6789"
@@ -122,35 +122,36 @@ site:
             url: "/contact#quote"
       features:
         - title: "Fiber Optic Installation"
-          icon: "/assets/img/fiber-optic-installation.png"
+#          icon: "assets/img/fiber-optic-installation.png"
+          icon: "assets/img/consulting-security.jpg"
           description: "High-speed fiber optic deployment for seamless connectivity."
 
         - title: "5G & Network Infrastructure"
-          icon: "/assets/img/g5-network-infrastructure.png"
+          icon: "assets/img/g5-network-infrastructure.png"
           description: "Cutting-edge 5G and structured cabling solutions for modern networks."
 
         - title: "24/7 Support & Maintenance"
-          icon: "/assets/img/support-maintenance.png"
+          icon: "assets/img/support-maintenance.png"
           description: "Round-the-clock technical assistance, preventive maintenance, and emergency repairs."
 
         - title: "Telecom Engineering"
-          icon: "/assets/img/telecom-engineering.png"
+          icon: "assets/img/telecom-engineering.png"
           description: "Expert network design, utility coordination, and OSP engineering services."
 
         - title: "Construction & Deployment"
-          icon: "/assets/img/construction-deployment.png"
+          icon: "assets/img/construction-deployment.png"
           description: "Aerial and underground fiber installation, directional drilling, and service drops."
 
         - title: "Consulting & Security"
-          icon: "/assets/img/consulting-security.png"
+          icon: "assets/img/consulting-security.png"
           description: "Tailored network consulting, capacity planning, and security assessments."
 
         - title: "Sales & Marketing"
-          icon: "/assets/img/sales-marketing.png"
+          icon: "assets/img/sales-marketing.png"
           description: "Strategic sales, call center support, and targeted telecom marketing campaigns."
 
         - title: "Broadband & MDU Installs"
-          icon: "/assets/img/broadband-mdu-install.png"
+          icon: "assets/img/broadband-mdu-install.png"
           description: "Professional FTTH, broadband, and multi-dwelling unit installations."
 
 
