@@ -1,14 +1,30 @@
+<!-- views/partials/index.ejs -->
 <!DOCTYPE html>
 <html lang="en">
+<!-- views/partials/head.ejs -->
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="content-security-policy" content="
+        default-src 'self';
+        script-src 'self' https://trusted.cdn.com;
+        style-src 'self' https://fonts.googleapis.com;
+        img-src 'self' data: https://futurenettelecomsolutions.com;
+        connect-src 'self' https://futurenettelecomsolutions.com;
+        font-src 'self' https://fonts.gstatic.com data:;
+        form-action 'self';
+        object-src 'none';
+        base-uri 'self';
+        upgrade-insecure-requests;
+    ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Premier telecommunication and low voltage services provider offering installation, maintenance, and support.">
     <meta name="keywords" content="Telecom Contractor, Telecommunication Services, Network Installation, Support and Maintenance, Fiber Optics, Network Infrastructure, Construction &amp; Deployment, Broadband adn MDU Installation, Consulting &amp; Security, Sales &amp; Marketing">
     <meta name="author" content="FutureNet Telecom solutions Inc.">
-    <title>FutureNet Telecom Solutions Inc - Telecommunication Experts || Home</title>
+    <title>FutureNet Telecom Solutions Inc - Telecommunication Experts</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/footer.css">
     <link rel="icon" type="image/x-icon" href="assets/img/favicon_io/favicon.ico">
     <meta property="og:title" content="{site.title}">
     <meta property="og:description" content="{site.metadata.description}">
@@ -20,10 +36,9 @@
     <meta name="twitter:creator" content="@futurenettelecomsolution">
     <meta name="twitter:image" content="{base_url}/assets/img/logo.png">
 </head>
+
 <body>
-<head>
-    <link rel="stylesheet" type="text/css" href="/assets/css/header.css">
-</head>
+<!-- views/partials/header.ejs -->
 <header>
     <div id="logo-container">
         <img
@@ -35,6 +50,7 @@
     <h1>The Future of Telecom and Low Voltage Solutions</h1>
 </header>
 
+<!-- views/partials/home.ejs -->
 <main>
     <section class="hero">
         <h1>Telecommunication Solutions for Tomorrow</h1>
@@ -46,7 +62,7 @@
     <section class="features">
         
             <div class="feature">
-                <img src="assets/img/consulting-security.jpg" alt="Fiber Optic Installation">
+                <img src="assets/img/fiber-optic-installation.png" alt="Fiber Optic Installation">
                 <h2>Fiber Optic Installation</h2>
                 <p>High-speed fiber optic deployment for seamless connectivity.</p>
             </div>
@@ -95,9 +111,8 @@
         
     </section>
 </main>
-<head>
-    <link rel="stylesheet" type="text/css" href="/assets/css/footer.css">
-</head>
+
+<!-- views/partials/footer.ejs -->
 <footer>
     <p>© 2025 FutureNet Telecom Solutions Inc. All rights reserved.</p>
     <ul>
@@ -118,6 +133,6 @@
     </p>
 </footer>
 
-<script type="application/javascript" src="/assets/js/main.js"></script>
+<script type="application/javascript" src="assets/js/main.js"></script>
 </body>
 </html>

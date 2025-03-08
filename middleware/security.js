@@ -1,41 +1,47 @@
 const helmet = require('helmet');
-const morgan = require('morgan'); // Import morgan explicitly
-const {logger, getCallerInfo} = require('../utils/logger'); // Import custom logger
+const morgan = require('morgan');
+const { logger, getCallerInfo } = require('../utils/logger');
 const siteConfig = require('../config/siteConfig');
 
-// // Custom morgan token for caller info
-// morgan.token('caller', () => {
-//   const { file, lineNumber } = getCallerInfo(); // Use logger's getCallerInfo
-//   return `${file}:${lineNumber}`;
-// });
-
-// Custom middleware to log responses
+//
+/**
+ * Custom middleware to log responses. This middleware captures the caller info
+ * at the start of the request for better accuracy and logs the response time
+ * after the response is sent.
+ * @name responseLoggingMiddleware
+ * @description Middleware to log responses with caller info
+ * @param req The request object
+ * @param res The response object
+ * @param next The next middleware function
+ */
 const responseLoggingMiddleware = (req, res, next) => {
   const startTime = Date.now();
+
+  // Store caller info at the start of the request for better accuracy
+  const callerInfo = getCallerInfo();
 
   // Capture the original end method to log after response
   const originalEnd = res.end;
   res.end = function (chunk, encoding, callback) {
     const responseTime = Date.now() - startTime;
-    const { file, lineNumber } = getCallerInfo();
+    const { file, lineNumber } = callerInfo; // Use captured info
     logger.info(`Response for ${req.method} ${req.url} - Status: ${res.statusCode}, Time: ${responseTime}ms [${file}:${lineNumber}]`);
-    res.end = originalEnd; // Restore the original end method
+    res.end = originalEnd; // Restore original method
     res.end(chunk, encoding, callback);
   };
 
   next();
 };
+
 // Custom morgan format for logging requests with caller info
 const customMorganFormat = ':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent" [:caller]';
 
 // Custom stream for morgan to use logger
 const morganStream = {
   write: (message) => {
-    // Remove newline and parse the morgan message
-    logger.info(message.trim()); // Log to combined log with caller info
+    logger.info(message.trim());
   }
 };
-
 
 /**
  * @description Security middleware including HTTP logging
@@ -43,10 +49,8 @@ const morganStream = {
  */
 const securityMiddleware = () => {
   return [
-    // HTTP request logging middleware
     morgan(customMorganFormat, { stream: morganStream }),
     responseLoggingMiddleware,
-    // Security middleware from helmet
     helmet.contentSecurityPolicy({
       directives: siteConfig.site.content_security_policy
     }),

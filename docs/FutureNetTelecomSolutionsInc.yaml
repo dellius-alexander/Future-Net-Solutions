@@ -122,8 +122,7 @@ site:
             url: "/contact#quote"
       features:
         - title: "Fiber Optic Installation"
-#          icon: "assets/img/fiber-optic-installation.png"
-          icon: "assets/img/consulting-security.jpg"
+          icon: "assets/img/fiber-optic-installation.png"
           description: "High-speed fiber optic deployment for seamless connectivity."
 
         - title: "5G & Network Infrastructure"

@@ -1,18 +1,14 @@
 // Base Styles for FutureNet Telecom Solutions Inc.
-// Use module system instead of @import
 @use 'variables';
-
-// Use sass:color for built-in functions (e.g., darken)
 @use 'sass:color';
 
-// Base Styles
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-// Ensure the footer is at the bottom of the page
+// Ensure the footer is at the bottom and page takes full height
 html, body {
   height: 100%;
   margin: 0;
@@ -24,6 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative; // Add this to make body the positioning context
 }
 
 /* Typography */
@@ -68,7 +65,7 @@ a:hover {
 }
 
 .btn:hover {
-  background-color: variables.$link-hover-color; // No darken needed here
+  background-color: variables.$link-hover-color;
 }
 
 /* Responsive Design */

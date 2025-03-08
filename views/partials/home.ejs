@@ -1,0 +1,19 @@
+<!-- views/partials/home.ejs -->
+<main>
+    <section class="hero">
+        <h1><%= site.structure.index.hero.title %></h1>
+        <p><%= site.structure.index.hero.subtitle %></p>
+        <a href="<%= site.structure.index.hero.cta.url %>" class="cta btn">
+            <%= site.structure.index.hero.cta.text %>
+        </a>
+    </section>
+    <section class="features">
+        <% site.structure.index.features.forEach(feature => { %>
+            <div class="feature">
+                <img src="<%= feature.icon %>" alt="<%= feature.title %>">
+                <h2><%= feature.title %></h2>
+                <p><%= feature.description %></p>
+            </div>
+        <% }); %>
+    </section>
+</main>

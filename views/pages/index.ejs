@@ -1,46 +1,11 @@
+<!-- views/partials/index.ejs -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="<%= site.metadata.charset %>">
-    <meta name="viewport" content="<%= site.metadata.viewport %>">
-    <meta name="description" content="<%= site.metadata.description %>">
-    <meta name="keywords" content="<%= site.metadata.keywords %>">
-    <meta name="author" content="<%= site.metadata.author %>">
-    <title><%= title %></title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
-    <link rel="icon" type="image/x-icon" href="<%= site.seo.favicon %>">
-    <meta property="og:title" content="<%= site.seo.open_graph.og_title %>">
-    <meta property="og:description" content="<%= site.seo.open_graph.og_description %>">
-    <meta property="og:type" content="<%= site.seo.open_graph.og_type %>">
-    <meta property="og:image" content="<%= site.seo.open_graph.og_image %>">
-    <meta property="og:locale" content="<%= site.seo.open_graph.og_locale %>">
-    <meta name="twitter:card" content="<%= site.seo.twitter_card.card_type %>">
-    <meta name="twitter:site" content="<%= site.seo.twitter_card.site_handle %>">
-    <meta name="twitter:creator" content="<%= site.seo.twitter_card.creator_handle %>">
-    <meta name="twitter:image" content="<%= site.seo.twitter_card.image %>">
-</head>
+<%- include('../partials/head') %>
 <body>
 <%- include('../partials/header') %>
-<main>
-    <section class="hero">
-        <h1><%= site.structure.index.hero.title %></h1>
-        <p><%= site.structure.index.hero.subtitle %></p>
-        <a href="<%= site.structure.index.hero.cta.url %>" class="cta btn">
-            <%= site.structure.index.hero.cta.text %>
-        </a>
-    </section>
-    <section class="features">
-        <% site.structure.index.features.forEach(feature => { %>
-            <div class="feature">
-                <img src="<%= feature.icon %>" alt="<%= feature.title %>">
-                <h2><%= feature.title %></h2>
-                <p><%= feature.description %></p>
-            </div>
-        <% }); %>
-    </section>
-</main>
+<%- include('../partials/home') %>
 <%- include('../partials/footer') %>
-<script type="application/javascript" src="/assets/js/main.js"></script>
+<script type="application/javascript" src="assets/js/main.js"></script>
 </body>
 </html>

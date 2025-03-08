@@ -1,0 +1,17 @@
+<!-- views/partials/exception.ejs -->
+<main class="error-container">
+    <h1 class="error-code"><%= error.status %></h1>
+    <p class="error-message"><%= error.message %></p>
+    <p class="error-info">
+        <% if (error.status === 404) { %>
+            Sorry, the page you're looking for cannot be found. It may have been moved or deleted.
+        <% } else if (error.status === 500) { %>
+            An unexpected error occurred on our server. Our team has been notified and is working to resolve it.
+        <% } else { %>
+            An error occurred. Please try again later or contact support if the issue persists.
+        <% } %>
+    </p>
+    <div id="back-home-container">
+        <a href="/" class="back-home btn">Return to Home</a>
+    </div>
+</main>

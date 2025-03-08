@@ -5,11 +5,12 @@
 .error-container {
   text-align: center;
   padding: 50px 20px;
-  min-height: 60vh;
+  min-height: 100vh; // Full height to push content into view
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; // Start content at top
   align-items: center;
+  // Removed position: relative; to let body be the positioning context
 }
 
 .error-code {
@@ -30,8 +31,16 @@
   margin: 0 auto;
 }
 
+#back-home-container {
+  position: absolute; // Position relative to body
+  top: 50%; // Center vertically
+  left: 50%; // Center horizontally
+  transform: translate(-50%, -50%); // Offset by half its size
+  width: auto; // Natural width
+}
+
 .back-home.btn {
-  margin-top: 30px;
+  display: inline-block;
   padding: 10px 20px;
   background-color: variables.$primary-color;
   color: variables.$secondary-color;
