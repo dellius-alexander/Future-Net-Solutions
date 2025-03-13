@@ -9,8 +9,7 @@ on:
       - 'main'
 
 permissions:
-  contents: write
-  id-token: write
+  contents: write  # For GITHUB_TOKEN, though PAT overrides this
 
 jobs:
   deploy:
@@ -24,36 +23,27 @@ jobs:
 
       - name: Configure Git
         run: |
-          ls -liaR
           git config --global user.name "${{ secrets.USER_NAME }}"
           git config --global user.email "${{ secrets.USER_EMAIL }}"
 
+      - name: Debug authentication
+        run: |
+          echo "Pushing as: ${{ secrets.USER_NAME }}"
+          echo "Target: https://${{ secrets.USER_NAME }}:****@github.com/${{ secrets.USER_NAME }}/FutureNet-Telecom-Solutions-Inc.git"
+          git remote add target https://${{ secrets.USER_NAME }}:${{ secrets.PAT }}@github.com/${{ secrets.USER_NAME }}/FutureNet-Telecom-Solutions-Inc.git
+          git remote -v
+
       - name: Prepare docs directory and push to target repository
         run: |
-          # Set up the target remote with authentication
-          git remote add target https://${{ secrets.USER_NAME }}:${{ secrets.PAT }}@github.com/${{ secrets.USER_NAME }}/FutureNet-Telecom-Solutions-Inc.git
-
-          # Fetch the target repository's main branch
           git fetch target main
-
-          # Checkout the main branch from the target repository
           git checkout -b main target/main || git checkout main
-
-          # Create or clear the docs directory
           mkdir -p docs
-          rm -rf docs/* # Clear existing contents in docs if any
-
-          # Move all files (except .git and docs) into the docs directory
-          mv * docs/ 2>/dev/null || true # Move everything except .git and docs, ignore errors
-          
-          # Add and commit the changes
+          rm -rf docs/*
+          find . -maxdepth 1 -not -name "." -not -name ".." -not -name ".git" -not -name "docs" -exec mv {} docs/ \;
           git add docs/
           git commit -m "Deploy contents to docs directory" || echo "No changes to commit"
-
-          # Push to the main branch of the target repository
           git push -f target main
         env:
-          PAT: ${{ secrets.PAT }}  # Use PAT instead of GITHUB_TOKEN
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAT: ${{ secrets.PAT }}
           USER_NAME: ${{ secrets.USER_NAME }}
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
