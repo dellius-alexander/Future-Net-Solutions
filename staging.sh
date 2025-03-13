@@ -59,7 +59,7 @@ create_github_pages_file() {
     local dest="$1"
     local github_pages_path="$dest/.github/workflows/github-pages-staging.yml"
     mkdir -p $(dirname "$github_pages_path")
-    cat <<EOF > "$github_pages_path"
+    cat  > "$github_pages_path" <<EOF
 name: 'Deploy GitHub Pages'
 env:
   TZ: 'America/New_York'
