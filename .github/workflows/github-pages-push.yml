@@ -30,7 +30,7 @@ jobs:
 
       - name: Push to target repository
         run: |
-          git remote add target https://${{ secrets.USER_NAME }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ secrets.USER_NAME }}/FutureNet-Telecom-Solutions-Inc.git          
+          git remote add target https://${{ secrets.USER_NAME }}:${{ secrets.GITHUB_TOKEN }}@github.com/FutureNet-Telecom-Solutions-Inc.git          
           git push -f target main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
