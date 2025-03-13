@@ -1,0 +1,66 @@
+.error-container {
+  padding: 50px 20px;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-code {
+  font-size: 120px;
+  font-weight: bold;
+  color: #0078D4;
+  margin: 0;
+}
+
+.error-message {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.error-info {
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.back-home {
+  right: 50%;
+  left: 50%;
+}
+
+.back-home.btn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #0078D4;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  align-content: center;
+}
+
+.back-home.btn:hover {
+  background-color: #00CC66;
+}
+
+/* Responsive Design Between (769px) and (932px). Mainly Tablets*/
+@media (min-width: 769px) and (max-width: 932px) {
+  p {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+/* Responsive Design max(768px). Mainly Cell Phones */
+@media (max-width: 768px) {
+  p {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/*# sourceMappingURL=error.css.map */
