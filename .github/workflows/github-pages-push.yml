@@ -30,7 +30,7 @@ jobs:
       - name: Prepare docs directory and push to target repository
         run: |
           # Set up the target remote with authentication
-          git remote add target https://${{ secrets.USER_NAME }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ secrets.USER_NAME }}/FutureNet-Telecom-Solutions-Inc.git
+          git remote add target https://${{ secrets.USER_NAME }}:${{ secrets.PAT }}@github.com/${{ secrets.USER_NAME }}/FutureNet-Telecom-Solutions-Inc.git
 
           # Fetch the target repository's main branch
           git fetch target main
@@ -52,6 +52,6 @@ jobs:
           # Push to the main branch of the target repository
           git push -f target main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAT: ${{ secrets.PAT }}  # Use PAT instead of GITHUB_TOKEN
           USER_NAME: ${{ secrets.USER_NAME }}
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
