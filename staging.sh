@@ -101,8 +101,6 @@ jobs:
         if: success()
         run: echo "Deployed to ${{ steps.deployment.outputs.page_url }}"
 
-    cat <<EOF > "$github_pages_path"
-
 EOF
     echo "Created github-pages-staging.yml at: $github_pages_path"
 }
@@ -142,7 +140,7 @@ setup_staging() {
     copy_license_file "$DEST_DIR"
 
     # Step 5: Create github-pages-staging.yml file
-    create_github_pages_file "$DEST_DIR"
+   # create_github_pages_file "$DEST_DIR"
 
     # Step 6: Create README.md
     create_simple_readme "$DEST_DIR"
