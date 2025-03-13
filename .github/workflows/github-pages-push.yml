@@ -1,0 +1,38 @@
+name: 'Deploy to FutureNet-Telecom-Solutions-Inc repository main branch'
+
+on:
+  workflow_run:
+    workflows: ['Build, Test, Deploy GitHub Pages'] # Name of the first workflow
+    types:
+      - completed
+    branches:
+      - 'main'
+
+permissions:
+  contents: write # Needed for branch updates in the dev repo
+  id-token: write
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }} # Only run if the previous workflow succeeded
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v3
+        with:
+          repository: FutureNet-Telecom-Solutions-Inc/FutureNet-Telecom-Solutions-Inc.github.io
+          ref: github-pages # Checkout the github-pages branch from the source repo
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "${{ secrets.USER_NAME }}"
+          git config --global user.email "${{ secrets.USER_EMAIL }}"
+
+      - name: Push to target repository
+        run: |
+          git remote add target https://${{ secrets.USER_NAME }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ secrets.USER_NAME }}/FutureNet-Telecom-Solutions-Inc.git
+          git push -f target main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USER_NAME: ${{ secrets.USER_NAME }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}

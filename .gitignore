@@ -223,4 +223,6 @@ certs/
 # Never commit staging directory
 staging/
 
+# Never commit
 /docs/HTML.md
+/docs/github-pages*.yml
