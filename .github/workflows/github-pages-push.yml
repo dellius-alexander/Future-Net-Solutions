@@ -2,36 +2,54 @@ name: 'Deploy to FutureNet-Telecom-Solutions-Inc repository main branch'
 
 on:
   workflow_run:
-    workflows: ['Build, Test, Deploy GitHub Pages'] # Name of the first workflow
+    workflows: ['Build, Test, Deploy GitHub Pages']
     types:
       - completed
     branches:
       - 'main'
 
 permissions:
-  contents: write # Needed for branch updates in the dev repo
+  contents: write
   id-token: write
 
 jobs:
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }} # Only run if the previous workflow succeeded
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source repository
         uses: actions/checkout@v3
         with:
-          #repository: FutureNet-Telecom-Solutions-Inc/FutureNet-Telecom-Solutions-Inc.git
-          ref: github-pages # Checkout the github-pages branch from the source repo
+          ref: github-pages
 
       - name: Configure Git
         run: |
           git config --global user.name "${{ secrets.USER_NAME }}"
           git config --global user.email "${{ secrets.USER_EMAIL }}"
 
-      - name: Push to target repository
+      - name: Prepare docs directory and push to target repository
         run: |
-          git remote add target https://${{ secrets.USER_NAME }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ secrets.USER_NAME }}/FutureNet-Telecom-Solutions-Inc.git  
-          git branch -M main
+          # Set up the target remote with authentication
+          git remote add target https://${{ secrets.USER_NAME }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ secrets.USER_NAME }}/FutureNet-Telecom-Solutions-Inc.git
+
+          # Fetch the target repository's main branch
+          git fetch target main
+
+          # Checkout the main branch from the target repository
+          git checkout -b main target/main || git checkout main
+
+          # Create or clear the docs directory
+          mkdir -p docs
+          rm -rf docs/* # Clear existing contents in docs if any
+
+          # Move all files (except .git) into the docs directory
+          mv $(ls -A | grep -v "^\.git$") docs/
+
+          # Add and commit the changes
+          git add docs/
+          git commit -m "Deploy contents to docs directory" || echo "No changes to commit"
+
+          # Push to the main branch of the target repository
           git push -f target main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
