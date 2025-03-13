@@ -20,7 +20,7 @@ jobs:
       - name: Checkout source repository
         uses: actions/checkout@v3
         with:
-          repository: FutureNet-Telecom-Solutions-Inc/FutureNet-Telecom-Solutions-Inc.github.io
+          #repository: FutureNet-Telecom-Solutions-Inc/FutureNet-Telecom-Solutions-Inc.git
           ref: github-pages # Checkout the github-pages branch from the source repo
 
       - name: Configure Git
